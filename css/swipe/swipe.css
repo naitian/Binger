@@ -4,13 +4,10 @@ html, body {
 	padding: 0;
 	margin: 0;
 }
-/*
 
 .dummy {
 	padding-top: 56.25%;
 }
-*/
-
 .swipe-card .thumbnail {
 	width: 416px;
 	height: 234px;

@@ -1,11 +1,19 @@
 body {
-	background-color: #fff;
+	background-color: #e74c3c;
 	text-align: center;
 }
 .mdl-button {
 	max-width: 600px;
 	width: 80%;
 	margin-top: 20px;
+}
+.logo {
+	width: 60%;
+	max-width: 300px;
+}
+
+h1 {
+	color: #fff;
 }
 
 .mdl-button.mdl-button--facebook {
