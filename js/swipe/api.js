@@ -40,7 +40,7 @@ function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, direc
 		.css("background-repeat","no-repeat")
 		.css("background-position","center")
 		.css("background-size","contain")
-		.css("height",$("#card-1 .thumbnail").height())
+		.css("height", "234px")
 		.css("width", "auto")
 		.click(function(){ onThumbnailClick($(this)) });
 	updateServiceAvailability('netflix', title, swipecard.prop('id'));

@@ -26,7 +26,7 @@ li {
 }
 
 @media screen and (max-width: 416px){
-	.swipe-card .thumbnail, iframe {
+	.swipe-card.thumbnail, iframe {
 		width: 100%;
 		height: 56.25%;
 	}
@@ -44,6 +44,7 @@ li {
 @media screen and (min-width: 820px){
 	.swipe-card {
 		width: 738px;
+
 	}
 }
 
