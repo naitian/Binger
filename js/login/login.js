@@ -38,13 +38,18 @@ function login(auth) {
 	ref.child(auth.uid).set({
 		name: uname
 	});
-	if(ref.child(auth.uid + "/like").name() === null)
-		ref.child(auth.uid).set({
-			like: 0
-		});
-	if(ref.child(auth.uid + "/dislike").name() === null)
-		ref.child(auth.uid).set({
-			dislike: 0
-		});
+
+	ref.child(auth.uid).once("value", function(snap){
+		var data = snap.val();
+		if(data.like === null)
+			ref.child(auth.uid).set({
+				like: 0
+			});
+		if(data.dislike === null)
+			ref.child(auth.uid).set({
+				dislike: 0
+			});
+	});
+
 	window.location.replace("swipe.html");
 }
