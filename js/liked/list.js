@@ -1,18 +1,22 @@
 function initListeners(){
 	$('.mdl-list__item').on('click', function(event){
-		console.log($(this));
-		$('.trailer-video').css('display','none');
-		$('.description-text p').css('display','none');
-		$('.available-services').css('display','none');
-		$('.swipe-actions').css('display','none');
-		if(!$(this).hasClass('expanded')){
+		if($(this).hasClass('expanded')){
+			$('.trailer-video').css('display','none');
+			$('.description-text p').css('display','none');
+			$('.available-services').css('display','none');
+			$('.swipe-actions').css('display','none');
+			$(this).removeClass('expanded');
+		} else {
+			$('.trailer-video').css('display','none');
+			$('.description-text p').css('display','none');
+			$('.available-services').css('display','none');
+			$('.swipe-actions').css('display','none');
+			$('.mdl-list__item').removeClass('expanded');
 			$(this).addClass('expanded');
 			$('.expanded .trailer-video').css('display','initial');
 			$('.expanded .description-text p').css('display','initial');
 			$('.expanded .available-services').css('display','initial');
 			$('.expanded .swipe-actions').css('display','initial');
-		} else {
-			$(this).removeClass('expanded');
 		}
 	});
 }
@@ -33,14 +37,16 @@ function populateList(){
 			$.each(data.val()['like'], function(key, val){
 				console.log(key + '::' + val['data']['title']);
 				var templateCopy = $('.swipe-card').clone();
-				var tempCard = displayInSwipeCard(templateCopy, val['data']['title'], val['data']['year'], val['data']['rating'], val['data']['runtime'], val['data']['genre'], val['data']['director'], val['data']['plot'], key, 'http://www.google.com/');
-				$('.mdl-list').append('<li class="mdl-list__item">' + tempCard.html() + '</li>');
+				templateCopy.prop('id', key);
+				$('.mdl-list').append('<li class="mdl-list__item">' + templateCopy.prop('outerHTML') + '</div></li>');
+				displayInSwipeCard(templateCopy, val['data']['title'], val['data']['year'], val['data']['rating'], val['data']['runtime'], val['data']['genre'], val['data']['director'], val['data']['plot'], key, 'http://www.google.com/');
+				
 //				var tempcard = displayInSwipeCard($('.swipe-card').clone(), val['data']['title'], val['data']['year'], val['data']['rating'], val['data']['runtime'], val['data']['genre'], val['data']['director'], val['data']['plot'], key, 'http://www.google.com/');
 //				console.log(tempcard);
 //				$('.mdl-list').append('<li id="' + key + '" class="mdl-list__item">' + tempcard.html() + '</li>');
 			});
 			initListeners();
-//			$('#template').css('visibility','hidden');
+			$($('.mdl-list').children()[0]).css('display','none');
 		});
 	}
 }

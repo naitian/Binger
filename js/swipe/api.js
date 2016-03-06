@@ -45,7 +45,7 @@ function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, direc
 		.click(function(){ onThumbnailClick($(this)) });
 	updateServiceAvailability('netflix', title, swipecard.prop('id'));
 	updateServiceAvailability('hulu', title, swipecard.prop('id'));
-	return swipecard;
+//	return swipecard;
 }
 
 function updateServiceAvailability(service, title, cardid){
