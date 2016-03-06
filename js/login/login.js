@@ -46,7 +46,7 @@ function login(auth) {
 			console.log("------------==-=5=24-25-=24=-524=-=245=");
 			ref.child(auth.uid).set({
 				like: 0
-			});
+			}, function(){console.log("alskdghalksdfjlasdkghas;lfkjasdl;gkhasl;dfkjasdl;kfhasdkl;fjsdkl;j")});
 		}
 		console.log("---" + data + "---");
 	});
