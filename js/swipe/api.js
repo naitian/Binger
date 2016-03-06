@@ -16,10 +16,7 @@ function getRandomMovie(swipecard){
 }
 
 function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, director, plot, imdbID, poster){
-	$.data(swipecard, "id", imdbID);
-	$.data(swipecard, "desc", plot);
-	$.data(swipecard, "poster", poster);
-	$.data(swipecard, "title", title);
+
 	$("#" + swipecard.prop('id')).val(imdbID);
 	$("#" + swipecard.prop('id') + " .title").html(title);
 	$("#" + swipecard.prop('id') + " .year").html(year);
@@ -41,13 +38,14 @@ function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, direc
 }
 
 function updateServiceAvailability(service, title, cardid){
-	console.log("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title);
+	// console.log("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title);
 	$.getJSON("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title, function(data){
 		if(!data['streamable']){
 			$("#" + cardid + " .icon-" + service).addClass("icon-disabled");
 		} else {			
 			$("#" + cardid + " .icon-" + service).removeClass("icon-disabled");
 		}
+		$.data($(cardid), service, data);
 	});
 }
 

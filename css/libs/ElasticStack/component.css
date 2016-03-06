@@ -31,10 +31,10 @@
 	z-index: 1;
 	width: 340px;
 	height: 380px;
-	border-width: 60px 20px;
+/*	border-width: 60px 20px;
 	border-style: solid;
-	border-color: #fff;
-	box-shadow: 0 10px 7px -7px rgba(0,0,0,0.12), 0 0 4px rgba(0,0,0,0.1);
+	border-color: #fff;*/
+	/*box-shadow: 0 10px 7px -7px rgba(0,0,0,0.12), 0 0 4px rgba(0,0,0,0.1);*/
 	opacity: 0;
 	cursor: pointer;
 	-webkit-transform: translate3d(0,0,-180px);
@@ -57,7 +57,7 @@
 	display: block;
 }
 
-.elasticstack li h5 {
+/*.elasticstack li h5 {
 	margin: 0 5px;
 	color: #143f51;
 	height: 60px;
@@ -65,7 +65,7 @@
 	font-size: 1.4em;
 	font-family: "Sacramento", cursive;
 	line-height: 60px;
-}
+}*/
 
 .elasticstack li.animate {
 	-webkit-transition: all 0.3s ease-out;
