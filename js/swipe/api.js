@@ -11,7 +11,18 @@ function init(){
 
 function getRandomMovie(swipecard){
 	$.getJSON("http://server.naitian.org:8080/random", function(data){
-		displayInSwipeCard(swipecard, data['Title'], data['Year'], data['Rated'], data['Runtime'], data['Genre'], data['Director'], data['Plot'], data['imdbID'], data['Poster']);
+		var auth = ref.getAuth();
+		if(auth){
+			ref.child(auth.uid).once("value", (d) => {
+				console.log(d.val());
+				if(!(d.val().dislike[data['imdbID']] !== undefined || d.val().like[data['imdbID']] !== undefined)){
+							displayInSwipeCard(swipecard, data['Title'], data['Year'], data['Rated'], data['Runtime'], data['Genre'], data['Director'], data['Plot'], data['imdbID'], data['Poster']);
+				}
+				else{
+					getRandomMovie(swipecard);
+				}
+			});
+		}
 	});
 }
 
