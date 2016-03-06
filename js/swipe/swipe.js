@@ -28,4 +28,4 @@ $(document).on('mousemove', function(event){
 });
 */
 
-new ElastiStack(document.getElementById('elasticstack')) ;
+new ElastiStack(document.getElementById('elasticstack'));

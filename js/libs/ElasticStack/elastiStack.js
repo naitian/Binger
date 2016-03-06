@@ -85,21 +85,18 @@
 
 		if( item1 ) {
 			item1.style.opacity = 1;
-//			getRandomMovie($(item1));
 			item1.style.zIndex = 4;
 			setTransformStyle( item1, is3d ? 'translate3d(0,0,0)' : 'translate(0,0)' );
 		}
 
 		if( item2 ) {
 			item2.style.opacity = 1;
-//			getRandomMovie($(item2));
 			item2.style.zIndex = 3;
 			setTransformStyle( item2, is3d ? 'translate3d(0,0,-60px)' : 'translate(0,0)' );
 		}
 
 		if( item3 ) {
 			item3.style.opacity = 1;
-//			getRandomMovie($(item3));
 			item3.style.zIndex = 2;
 			setTransformStyle( item3, is3d ? 'translate3d(0,0,-120px)' : 'translate(0,0)' );
 		}
@@ -120,6 +117,10 @@
 		
 		// item also fades out
 		instance.element.style.opacity = 0;
+		var tMatrix = $(instance.element).css('transform');
+		addPreference(parseInt(tMatrix.substring(tMatrix.lastIndexOf(',', tMatrix.lastIndexOf(',') - 1) + 2, tMatrix.lastIndexOf(','))) > 0);
+		getRandomMovie($('#' + instance.element.children[0].id));
+		removeiFrame();
 
 		// other items move back to stack
 		var item2 = this._secondItem(), item3 = this._thirdItem();
