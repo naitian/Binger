@@ -1,34 +1,39 @@
-function getRandomMovie(){
-	$.getJSON("http://server.naitian.org:8080/random", function(data){
-		console.log(data);
-//		$.each(data, function(key, val){
-//			console.log(key + " : " + val);
-//		});
-		displayInSwipeCard(data['Title'], data['Year'], data['Rated'], data['Runtime'], data['Genre'], data['Director'], data['Plot'], data['imdbID'], data['Poster']);
-		console.log("http://server.naitian.org:8080/trailer?imdbid=" + data['imdbID'].substring(2));
-	});
-	
+function init(){
+	getRandomMovie($('#card-1'));
+	getRandomMovie($('#card-2'));
+	getRandomMovie($('#card-3'));
 }
 
-function displayInSwipeCard(title, year, rated, runtime, genre, director, plot, imdbID, poster){
-	$("#title").html(title);
-	$("#year").html(year);
-	$("#rated").html(rated);
-	$("#runtime").html(runtime);
-	$("#genre").html(genre);
-	$("#director").html(director);
-	$("#plot").html(plot);
+function getRandomMovie(swipecard){
+	$.getJSON("http://server.naitian.org:8080/random", function(data){
+//		swipecard.prop('id',data['imdbID']);
+		displayInSwipeCard(swipecard, data['Title'], data['Year'], data['Rated'], data['Runtime'], data['Genre'], data['Director'], data['Plot'], data['imdbID'], data['Poster']);
+	});
+}
+
+function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, director, plot, imdbID, poster){
+	$("#" + swipecard.prop('id') + " .title").html(title);
+	$("#" + swipecard.prop('id') + " .year").html(year);
+	$("#" + swipecard.prop('id') + " .rated").html(rated);
+	$("#" + swipecard.prop('id') + " .runtime").html(runtime);
+	$("#" + swipecard.prop('id') + " .genre").html(genre);
+	$("#" + swipecard.prop('id') + " .director").html(director);
+	$("#" + swipecard.prop('id') + " .plot").html(plot);
 			console.log(poster);
-	$(".trailer-background").css("background-image","url(" + poster + ")");
+	$("#" + swipecard.prop('id') + " .trailer-background").css("background-image","url(" + poster + ")");
 	
 	$.get("http://server.naitian.org:8080/trailer?imdbid=" + imdbID.substring(2), function(data){
-			$(".trailer-video iframe").replaceWith("<img class='thumbnail'>");
-			$(".thumbnail").prop("src", poster)
+		$("#" + swipecard.prop('id') + " .trailer-video iframe").replaceWith("<div class='thumbnail'></div>");
+		console.log("#" + swipecard.prop('id') + " .thumbnail" + " -------- " + poster);
+			$("#" + swipecard.prop('id') + " .thumbnail").css("background-image", "url(" + poster + ")")
+				.css("background-repeat","no-repeat")
+				.css("background-position","center")
+				.css("height",$("#" + swipecard.prop('id') + " .thumbnail").height())
 				.css("width", "auto");
 			if(data.indexOf('iframe') != -1){
-				$(".trailer-video img").replaceWith(data.substring(data.indexOf('iframe') - 1, data.lastIndexOf('iframe') + 7));
-				$(".trailer-video iframe").css("margin","auto")
-					.prop("src", "http://" + $(".trailer-video iframe").prop("src").substring(7));
+				$("#" + swipecard.prop('id') + " .thumbnail").replaceWith(data.substring(data.indexOf('iframe') - 1, data.lastIndexOf('iframe') + 7));
+				$("#" + swipecard.prop('id') + " .trailer-video iframe").css("margin","auto")
+					.prop("src", "http://" + $("#" + swipecard.prop('id') + " .trailer-video iframe").prop("src").substring(7));
 			}
 	});
 }
