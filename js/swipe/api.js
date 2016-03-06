@@ -19,11 +19,44 @@ function getRandomMovie(swipecard){
 							displayInSwipeCard(swipecard, data['Title'], data['Year'], data['Rated'], data['Runtime'], data['Genre'], data['Director'], data['Plot'], data['imdbID'], data['Poster']);
 				}
 				else{
-					getRandomMovie(swipecard);
+					getRecommendedMovie(swipecard, pickRandomProperty(d.val().like));
 				}
 			});
 		}
 	});
+}
+
+function getRecommendedMovie(swipecard, movie){
+	$.getJSON("http://server.naitian.org:8080/recommend?title=" + movie, function(data){
+		console.log(data);
+		if(data.Similar.Results.length <1){
+			getRandomMovie(swipecard);
+			return;
+		}
+		$.getJSON("http://server.naitian.org:8080/movie?title=" + data.Similar.Results[parseInt(Math.random() * data.Similar.Results.length)].name, function(data){
+			var auth = ref.getAuth();
+			if(auth){
+				ref.child(auth.uid).once("value", (d) => {
+					console.log(d.val());
+					if(!(d.val().dislike[data['imdbID']] !== undefined || d.val().like[data['imdbID']] !== undefined)){
+								displayInSwipeCard(swipecard, data['Title'], data['Year'], data['Rated'], data['Runtime'], data['Genre'], data['Director'], data['Plot'], data['imdbID'], data['Poster']);
+					}
+					else{
+						getRandomMovie(swipecard);
+					}
+				});
+			}
+		});
+	});
+}
+
+function pickRandomProperty(obj) {
+    var result;
+    var count = 0;
+    for (var prop in obj)
+        if (Math.random() < 1/++count)
+           result = prop;
+    return result;
 }
 
 function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, director, plot, imdbID, poster, id){
