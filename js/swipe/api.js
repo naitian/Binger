@@ -35,7 +35,24 @@ function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, direc
 		.css("background-size","contain")
 		.css("height",$("#card-1 .thumbnail").height())
 		.css("width", "auto")
+<<<<<<< HEAD
 		.click(function(){ onThumbnailClick($(this)); });
+=======
+		.click(function(){ onThumbnailClick($(this)) });
+	updateServiceAvailability('netflix', title, swipecard.prop('id'));
+	updateServiceAvailability('hulu', title, swipecard.prop('id'));
+}
+
+function updateServiceAvailability(service, title, cardid){
+	console.log("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title);
+	$.getJSON("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title, function(data){
+		if(!data['streamable']){
+			$("#" + cardid + " .icon-" + service).addClass("icon-disabled");
+		} else {			
+			$("#" + cardid + " .icon-" + service).removeClass("icon-disabled");
+		}
+	});
+>>>>>>> d2392d49068c335c05c0d51274692074f908e4bd
 }
 
 function onThumbnailClick(obj){
