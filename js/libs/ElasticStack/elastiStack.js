@@ -1,4 +1,4 @@
-/**
+2/**
  * elastiStack.js v1.0.0
  * http://www.codrops.com
  *
@@ -119,7 +119,7 @@
 		// item also fades out
 		instance.element.style.opacity = 0;
 		var tMatrix = $(instance.element).css('transform');
-		addPreference(parseInt(tMatrix.substring(tMatrix.lastIndexOf(',', tMatrix.lastIndexOf(',') - 1) + 2, tMatrix.lastIndexOf(','))) > 0);
+		addPreference(parseInt(tMatrix.substring(tMatrix.lastIndexOf(',', tMatrix.lastIndexOf(',') - 1) + 2, tMatrix.lastIndexOf(','))) > 0, $(instance.element).children().first());
 		getRandomMovie($('#' + instance.element.children[0].id));
 		removeiFrame();
 
@@ -231,10 +231,10 @@
 			// the second and third items also move
 			var item2 = this._secondItem(), item3 = this._thirdItem();
 			if( item2 ) {
-				setTransformStyle( item2, is3d ? 'translate3d(' + ( instance.position.x * .6 ) + 'px,' + ( instance.position.y * .6 ) + 'px, -60px)' : 'translate(' + ( instance.position.x * .6 ) + 'px,' + ( instance.position.y * .6 ) + 'px)' );
+				setTransformStyle( item2, is3d ? 'translate3d(' + ( instance.position.x * .2 ) + 'px,' + ( instance.position.y * .2 ) + 'px, -60px)' : 'translate(' + ( instance.position.x * .2 ) + 'px,' + ( instance.position.y * .2 ) + 'px)' );
 			}
 			if( item3 ) {
-				setTransformStyle( item3, is3d ? 'translate3d(' + ( instance.position.x * .3 ) + 'px,' + ( instance.position.y * .3 ) + 'px, -120px)' : 'translate(' + ( instance.position.x * .3 ) + 'px,' + ( instance.position.y * .3 ) + 'px)' );
+				setTransformStyle( item3, is3d ? 'translate3d(' + ( instance.position.x * .1 ) + 'px,' + ( instance.position.y * .1 ) + 'px, -120px)' : 'translate(' + ( instance.position.x * .1 ) + 'px,' + ( instance.position.y * .1 ) + 'px)' );
 			}
 		}
 	};

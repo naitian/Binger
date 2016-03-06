@@ -7,6 +7,7 @@ $(document).ready(function() {
 		    console.log("Login Failed!", error);
 		  } else {
 		    console.log("Authenticated successfully with payload:", authData);
+		    login(authData);
 		  }
 		});
 	});
@@ -16,8 +17,18 @@ $(document).ready(function() {
 		    console.log("Login Failed!", error);
 		  } else {
 		    console.log("Authenticated successfully with payload:", authData);
+		    login(authData);
 		  }
 		});
 	});
 
 });
+
+function login(auth) {
+	console.log(auth.uid);
+	var uname = auth.google.displayName || auth.facebook.displayName;
+	ref.child(auth.uid).set({
+		name: uname
+	});
+	window.location.replace("swipe.html");
+}

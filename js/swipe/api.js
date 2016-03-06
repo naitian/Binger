@@ -2,6 +2,7 @@ function init(){
 	getRandomMovie($('#card-1'));
 	getRandomMovie($('#card-2'));
 	getRandomMovie($('#card-3'));
+
 //	$(".thumbnail").on("click", function(){
 //		console.log($(this).parent().parent());
 //		onThumbnailClick($(this).parent().parent());
@@ -10,11 +11,23 @@ function init(){
 
 function getRandomMovie(swipecard){
 	$.getJSON("http://server.naitian.org:8080/random", function(data){
-		displayInSwipeCard(swipecard, data['Title'], data['Year'], data['Rated'], data['Runtime'], data['Genre'], data['Director'], data['Plot'], data['imdbID'], data['Poster']);
+		var auth = ref.getAuth();
+		if(auth){
+			ref.child(auth.uid).once("value", (d) => {
+				console.log(d.val());
+				if(!(d.val().dislike[data['imdbID']] !== undefined || d.val().like[data['imdbID']] !== undefined)){
+							displayInSwipeCard(swipecard, data['Title'], data['Year'], data['Rated'], data['Runtime'], data['Genre'], data['Director'], data['Plot'], data['imdbID'], data['Poster']);
+				}
+				else{
+					getRandomMovie(swipecard);
+				}
+			});
+		}
 	});
 }
 
 function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, director, plot, imdbID, poster){
+
 	$("#" + swipecard.prop('id')).val(imdbID);
 	$("#" + swipecard.prop('id') + " .title").html(title);
 	$("#" + swipecard.prop('id') + " .year").html(year);
@@ -36,13 +49,18 @@ function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, direc
 }
 
 function updateServiceAvailability(service, title, cardid){
+<<<<<<< HEAD
 //	console.log("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title);
+=======
+	// console.log("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title);
+>>>>>>> fbe4055b6cc40d67202559d6a49578f32ac686f7
 	$.getJSON("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title, function(data){
 		if(!data['streamable']){
 			$("#" + cardid + " .icon-" + service).addClass("icon-disabled");
 		} else {			
 			$("#" + cardid + " .icon-" + service).removeClass("icon-disabled");
 		}
+		$.data($(cardid), service, data);
 	});
 }
 
