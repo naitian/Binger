@@ -62,6 +62,7 @@ function pickRandomProperty(obj) {
 }
 
 function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, director, plot, imdbID, poster){
+	swipecard.css('display','inherit');
 	$("#" + swipecard.prop('id')).val(imdbID);
 	$("#" + swipecard.prop('id') + " .title").html(title);
 	$("#" + swipecard.prop('id') + " .year").html(year);
