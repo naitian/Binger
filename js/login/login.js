@@ -41,6 +41,7 @@ function login(auth) {
 
 	ref.child(auth.uid).child('like').once("value", function(snap){
 		var data = snap.val();
+		console.log("===" + data + "===");
 		if(data == null){
 			ref.child(auth.uid).set({
 				like: 0
