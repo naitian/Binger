@@ -5,8 +5,7 @@ function initListeners(){
 	$('.mdl-list__item').on('click', function(event){
 		if($(event.target).html() == 'delete'){
 			if(auth){
-				console.log($($(this).children[0]).prop('id'));
-				ref.child(auth.uid).orderByKey().equalTo($($(this).children[0]).prop('id')).remove();	
+				ref.child(auth.uid).child('like').child($($(this).children()[0]).prop('id')).remove();
 				$(this).remove();
 			}
 		}
