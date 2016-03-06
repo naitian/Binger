@@ -10,6 +10,7 @@ function addPreference(like, el){
 	data.genre = $("#" + el.prop('id') + " .genre").html();
 	data.director = $("#" + el.prop('id') + " .director").html();
 	data.plot = $("#" + el.prop('id') + " .plot").html();
+	data.poster = $("#" + el.prop('id') + " .thumbnail").css('background-image');
 
 	if(auth){
 		if(like)

@@ -26,7 +26,7 @@ function getRandomMovie(swipecard){
 	});
 }
 
-function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, director, plot, imdbID, poster, id){
+function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, director, plot, imdbID, poster){
 	$("#" + swipecard.prop('id')).val(imdbID);
 	$("#" + swipecard.prop('id') + " .title").html(title);
 	$("#" + swipecard.prop('id') + " .year").html(year);
@@ -35,12 +35,13 @@ function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, direc
 	$("#" + swipecard.prop('id') + " .genre").html(genre);
 	$("#" + swipecard.prop('id') + " .director").html(director);
 	$("#" + swipecard.prop('id') + " .plot").html(plot);
-	$("#" + swipecard.prop('id') + " .trailer-background").css("background-image","url(" + poster + ")");
+	$("#" + swipecard.prop('id') + " .trailer-background").css("background-image","url(" + poster + ")")
+		.css('background-size','contain');
 	$("#" + swipecard.prop('id') + " .thumbnail").css("background-image", "url(" + poster + ")")
 		.css("background-repeat","no-repeat")
 		.css("background-position","center")
 		.css("background-size","contain")
-		.css("height", "234px")
+		.css("height", "124px")
 		.css("width", "auto")
 		.click(function(){ onThumbnailClick($(this)) });
 	updateServiceAvailability('netflix', title, swipecard.prop('id'));

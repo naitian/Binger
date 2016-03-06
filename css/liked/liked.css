@@ -66,3 +66,24 @@ html, body {
 	-webkit-filter: grayscale(1);
 	opacity: 0.1;
 }
+
+.trailer-video {
+	text-align: center;
+	background: none;
+}
+.trailer-background {
+	background-repeat: repeat-x;
+	background-size: cover;
+	filter: blur(3px);
+	-webkit-filter: blur(10px);
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.information {
+	background: #FFF;
+	margin-top: -1px;
+}

@@ -35,11 +35,11 @@ function populateList(){
 	if(auth){
 		ref.child(auth.uid).on('value', function(data){
 			$.each(data.val()['like'], function(key, val){
-				console.log(key + '::' + val['data']['title']);
+				console.log(val['data']);
 				var templateCopy = $('.swipe-card').clone();
 				templateCopy.prop('id', key);
 				$('.mdl-list').append('<li class="mdl-list__item">' + templateCopy.prop('outerHTML') + '</div></li>');
-				displayInSwipeCard(templateCopy, val['data']['title'], val['data']['year'], val['data']['rating'], val['data']['runtime'], val['data']['genre'], val['data']['director'], val['data']['plot'], key, 'http://www.google.com/');
+				displayInSwipeCard(templateCopy, val['data']['title'], val['data']['year'], val['data']['rating'], val['data']['runtime'], val['data']['genre'], val['data']['director'], val['data']['plot'], key, val['data']['poster'].substring(5,val['data']['poster'].length-2));
 				
 //				var tempcard = displayInSwipeCard($('.swipe-card').clone(), val['data']['title'], val['data']['year'], val['data']['rating'], val['data']['runtime'], val['data']['genre'], val['data']['director'], val['data']['plot'], key, 'http://www.google.com/');
 //				console.log(tempcard);
