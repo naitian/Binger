@@ -9,6 +9,7 @@ html, body {
 	position: fixed;
 	left: 15px;
 	bottom: 15px;
+	z-index: 5;
 }
 
 .trailer-video, .description-text p, .available-services, .swipe-actions {

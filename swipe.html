@@ -22,7 +22,9 @@
 				<div id="card-1" class="noselect swipe-card mdl-card mdl-shadow--4dp">
 					<div class="trailer-video mdl-card__media">
 						<div class="trailer-background"></div>
-						<div class="thumbnail"></div>
+						<div class="thumbnail">
+							<i class="video-play-button material-icons">play_circle_outline</i>
+						</div>
 					</div>
 					<div class="information mdl-card__actions">
 						<div class="mdl-card__title">
@@ -48,12 +50,18 @@
 							<div class="icon icon-hulu"></div>
 						</div>
 						<div class="swipe-actions mdl-card__actions mdl-card--border">
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="dislike-icon material-icons">close</i>
-							</button>
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="like-icon material-icons">check</i>
-							</button>
+							<div class="dislike">
+								<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+									<i class="dislike-icon material-icons">arrow_backward</i>
+								</button>
+								<span class="mdl-card__subtitle-text">Swipe left to dislike</span>
+							</div>
+							<div class="like">
+								<span class="mdl-card__subtitle-text">Swipe right to like</span>
+								<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+									<i class="like-icon material-icons">arrow_forward</i>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -62,7 +70,9 @@
 				<div id="card-2" class="noselect swipe-card mdl-card mdl-shadow--4dp">
 					<div class="trailer-video mdl-card__media">
 						<div class="trailer-background"></div>
-						<div class="thumbnail"></div>
+						<div class="thumbnail">
+							<i class="video-play-button material-icons">play_circle_outline</i>
+						</div>
 						<!-- <img class="thumbnail" src="http://i1.ytimg.com/vi/Z0X2FyRl-9s/maxresdefault.jpg"> -->
 					</div>
 					<div class="information mdl-card__actions">
@@ -89,12 +99,18 @@
 							<div class="icon icon-hulu"></div>
 						</div>
 						<div class="swipe-actions mdl-card__actions mdl-card--border">
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="dislike-icon material-icons">close</i>
-							</button>
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="like-icon material-icons">check</i>
-							</button>
+							<div class="dislike">
+								<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+									<i class="dislike-icon material-icons">arrow_backward</i>
+								</button>
+								<span class="mdl-card__subtitle-text">Swipe left to dislike</span>
+							</div>
+							<div class="like">
+								<span class="mdl-card__subtitle-text">Swipe right to like</span>
+								<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+									<i class="like-icon material-icons">arrow_forward</i>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -103,7 +119,9 @@
 				<div id="card-3" class="noselect swipe-card mdl-card mdl-shadow--4dp">
 					<div class="trailer-video mdl-card__media">
 						<div class="trailer-background"></div>
-						<div class="thumbnail"></div>
+						<div class="thumbnail">
+							<i class="video-play-button material-icons">play_circle_outline</i>
+						</div>
 <!--						<img class="thumbnail" src="http://i1.ytimg.com/vi/Z0X2FyRl-9s/maxresdefault.jpg">-->
 					</div>
 					<div class="information mdl-card__actions">
@@ -130,17 +148,26 @@
 							<div class="icon icon-hulu"></div>
 						</div>
 						<div class="swipe-actions mdl-card__actions mdl-card--border">
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="dislike-icon material-icons">close</i>
-							</button>
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="like-icon material-icons">check</i>
-							</button>
+							<div class="dislike">
+								<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+									<i class="dislike-icon material-icons">arrow_backward</i>
+								</button>
+								<span class="mdl-card__subtitle-text">Swipe left to dislike</span>
+							</div>
+							<div class="like">
+								<span class="mdl-card__subtitle-text">Swipe right to like</span>
+								<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+									<i class="like-icon material-icons">arrow_forward</i>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</li>
 		</ul>
+		<button id="logout" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+			<i class="material-icons">lock</i>
+		</button>
 		<button id="toLikedMovies" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 			<i class="material-icons">arrow_forward</i>
 		</button>

@@ -48,5 +48,7 @@ function populateList(){
 			initListeners();
 			$($('.mdl-list').children()[0]).css('display','none');
 		});
+	} else {
+		window.open('/login.html', '_self');
 	}
 }

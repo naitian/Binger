@@ -125,8 +125,44 @@ li {
                                   not supported by any browser */
 }
 
+#logout {
+	position: absolute;
+	left: 15px;
+	bottom: 15px;
+	z-index: 5;
+}
+
 #toLikedMovies {
 	position: absolute;
 	right: 15px;
 	bottom: 15px;
+	z-index: 5;
+}
+
+.like {
+	display: inline-block;
+	width: 35%;
+	text-align: right;
+}
+.dislike {
+	display: inline-block;
+	width: 35%;
+	text-align: left;
+}
+.like i {
+	color: green;
+}
+.dislike i {
+	color: red;
+}
+
+.video-play-button {
+	position: absolute;
+	top: 64px;
+	left: 50%;
+	font-size: 36px;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	z-index: 5;
+	display: none;
 }

@@ -22,6 +22,8 @@ function getRandomMovie(swipecard){
 					getRecommendedMovie(swipecard, pickRandomProperty(d.val().like));
 				}
 			});
+		} else {
+			window.open('/login.html', '_self');	
 		}
 	});
 }
@@ -79,6 +81,8 @@ function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, direc
 		.click(function(){ onThumbnailClick($(this)) });
 	updateServiceAvailability('netflix', title, swipecard.prop('id'));
 	updateServiceAvailability('hulu', title, swipecard.prop('id'));
+	updateTrailerPlayButton(swipecard.prop('id'), imdbID);
+	
 //	return swipecard;
 }
 
@@ -90,6 +94,17 @@ function updateServiceAvailability(service, title, cardid){
 			$("#" + cardid + " .icon-" + service).removeClass("icon-disabled");
 		}
 		$.data($(cardid), service, data);
+	});
+}
+
+function updateTrailerPlayButton(parentid, imdbid){
+	console.log("http://server.naitian.org:8080/trailer?imdbid=" + imdbid.substring(2));
+	$.get("http://server.naitian.org:8080/trailer?imdbid=" + imdbid.substring(2), function(data){
+		if(data.indexOf('iframe') != -1){
+			$('#' + parentid + ' .video-play-button').css('display','inherit');
+		} else {
+			$('#' + parentid + ' .video-play-button').css('display','none');
+		}
 	});
 }
 
@@ -119,6 +134,10 @@ $('.dislike-icon').on('click',function(event){
 
 $('#toLikedMovies').on('click', function(){
 	window.open('liked.html', '_self');
+});
+$('#logout').on('click', function(){
+	ref.unauth();
+	window.open('/login.html', '_self');
 });
 
 function addPreference(like){
