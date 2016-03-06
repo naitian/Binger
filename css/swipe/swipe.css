@@ -74,8 +74,17 @@ li {
 	line-height: 20px;
 	vertical-align: middle;
 }
-.icon-google {
-	background-image: url("https://images.google.com/images/branding/product/ico/googleg_lodp.ico");
+.icon-netflix {
+	background-image: url(../../assets/netflix-icon.ico);
+}
+.icon-hulu {
+	background-image: url("../../assets/hulu-icon.ico");
+}
+.icon-disabled {
+	filter: gray(1);
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	opacity: 0.1;
 }
 
 .swipe-actions {
