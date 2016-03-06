@@ -1,12 +1,9 @@
 function init(){
-	getRandomMovie($('#card-1'));
-	getRandomMovie($('#card-2'));
-	getRandomMovie($('#card-3'));
-
-//	$(".thumbnail").on("click", function(){
-//		console.log($(this).parent().parent());
-//		onThumbnailClick($(this).parent().parent());
-//	});
+	if(document.referrer.indexOf('login') != -1){
+		getRandomMovie($('#card-1'));
+		getRandomMovie($('#card-2'));
+		getRandomMovie($('#card-3'));
+	}
 }
 
 function getRandomMovie(swipecard){
