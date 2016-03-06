@@ -118,7 +118,7 @@
 		// item also fades out
 		instance.element.style.opacity = 0;
 		var tMatrix = $(instance.element).css('transform');
-		addPreference(parseInt(tMatrix.substring(tMatrix.lastIndexOf(',', tMatrix.lastIndexOf(',') - 1) + 2, tMatrix.lastIndexOf(','))) > 0);
+		addPreference(parseInt(tMatrix.substring(tMatrix.lastIndexOf(',', tMatrix.lastIndexOf(',') - 1) + 2, tMatrix.lastIndexOf(','))) > 0, instance.element);
 		getRandomMovie($('#' + instance.element.children[0].id));
 		removeiFrame();
 

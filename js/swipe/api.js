@@ -2,6 +2,7 @@ function init(){
 	getRandomMovie($('#card-1'));
 	getRandomMovie($('#card-2'));
 	getRandomMovie($('#card-3'));
+
 //	$(".thumbnail").on("click", function(){
 //		console.log($(this).parent().parent());
 //		onThumbnailClick($(this).parent().parent());
@@ -15,6 +16,10 @@ function getRandomMovie(swipecard){
 }
 
 function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, director, plot, imdbID, poster){
+	$.data(swipecard, "id", imdbID);
+	$.data(swipecard, "desc", plot);
+	$.data(swipecard, "poster", poster);
+	$.data(swipecard, "title", title);
 	$("#" + swipecard.prop('id')).val(imdbID);
 	$("#" + swipecard.prop('id') + " .title").html(title);
 	$("#" + swipecard.prop('id') + " .year").html(year);
@@ -30,7 +35,7 @@ function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, direc
 		.css("background-size","contain")
 		.css("height",$("#card-1 .thumbnail").height())
 		.css("width", "auto")
-		.click(function(){ onThumbnailClick($(this)) });
+		.click(function(){ onThumbnailClick($(this)); });
 }
 
 function onThumbnailClick(obj){
@@ -47,8 +52,4 @@ function onThumbnailClick(obj){
 
 function removeiFrame(){
 	$('iframe').replaceWith('<div class="thumbnail"></div>');
-}
-
-function addPreference(like){
-	
 }
