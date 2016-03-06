@@ -11,12 +11,13 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="css/liked/liked.css" rel="stylesheet">
 	</head>
-	<body>
+	<body onload="populateList()">
 		<button id="toSwipe" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 			<i class="material-icons">arrow_backward</i>
 		</button>
 		<ul class="mdl-list">
-			<li class="mdl-list__item"><div id="card-1" class="noselect swipe-card mdl-card mdl-shadow--4dp">
+			<li class="mdl-list__item">
+				<div class="noselect swipe-card mdl-card">
 					<div class="trailer-video mdl-card__media">
 						<div class="trailer-background"></div>
 						<div class="thumbnail"></div>
@@ -45,57 +46,13 @@
 							<div class="icon icon-netflix"></div>
 							<div class="icon icon-hulu"></div>
 						</div>
-						<div class="swipe-actions mdl-card__actions mdl-card--border">
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="dislike-icon material-icons">close</i>
-							</button>
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="like-icon material-icons">check</i>
-							</button>
-						</div>
 					</div>
-				</div></li>
-			<li class="mdl-list__item"><div id="card-2" class="noselect swipe-card mdl-card mdl-shadow--4dp">
-					<div class="trailer-video mdl-card__media">
-						<div class="trailer-background"></div>
-						<div class="thumbnail"></div>
-<!--						<img class="thumbnail" src="http://i1.ytimg.com/vi/Z0X2FyRl-9s/maxresdefault.jpg">-->
-					</div>
-					<div class="information mdl-card__actions">
-						<div class="mdl-card__title">
-							<p class="title-text mdl-card__title-text"><span class="title">Title</span></p>
-						</div>
-						<div class="description-text mdl-card__supporting-text">
-							<p>
-								<span class="year">2000</span>
-								<i class="material-icons">stop</i>
-								<span class="rated">PG</span>
-								<i class="material-icons">stop</i>
-								<span class="runtime">180min</span>
-								<i class="material-icons">stop</i>
-								<span class="genre">Action</span>
-								<i class="material-icons">stop</i>
-								<span class="director">JJ Abrams</span>
-							</p>
-							<span class="plot">Movie description here. Lorem ipsum stuff here. Blah blah blah</span>
-						</div>
-						<div class="available-services mdl-card__supporting-text">
-							Available on 
-							<div class="icon icon-netflix"></div>
-							<div class="icon icon-hulu"></div>
-						</div>
-						<div class="swipe-actions mdl-card__actions mdl-card--border">
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="dislike-icon material-icons">close</i>
-							</button>
-							<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								<i class="like-icon material-icons">check</i>
-							</button>
-						</div>
-					</div>
-				</div></li>
+				</div>
+			</li>
 		</ul>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="js/libs/firebase.js"></script>
 		<script src="js/liked//list.js"></script>
+		<script src="js/swipe/api.js"></script>
 	</body>
 </html>

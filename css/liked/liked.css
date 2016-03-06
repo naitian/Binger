@@ -6,7 +6,7 @@ html, body {
 }
 
 #toSwipe {
-	position: absolute;
+	position: fixed;
 	left: 15px;
 	bottom: 15px;
 }
@@ -43,4 +43,26 @@ html, body {
 	padding: 0;
 	display: inline-block;
 	border-top: solid 1px #E0E0E0;
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background-size: contain;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+.icon-netflix {
+	background-image: url(../../assets/netflix-icon.ico);
+}
+.icon-hulu {
+	background-image: url("../../assets/hulu-icon.ico");
+}
+.icon-disabled {
+	filter: gray(1);
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	opacity: 0.1;
 }
