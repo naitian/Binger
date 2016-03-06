@@ -43,6 +43,7 @@ function login(auth) {
 		var data = snap.val();
 		console.log("===" + data + "===");
 		if(data == null){
+			console.log("------------==-=5=24-25-=24=-524=-=245=");
 			ref.child(auth.uid).set({
 				like: 0
 			});
