@@ -3,6 +3,17 @@ html, body {
 	height: 100%;
 	padding: 0;
 	margin: 0;
+	overflow: hidden;
+}
+
+ul {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+li {
+	list-style: none;
 }
 
 .dummy {
@@ -51,7 +62,7 @@ html, body {
 	right: 0;
 	bottom: 0;
 }
-.trailer-video iframe {
+.trailer-video iframe, .thumbnail {
 	margin: auto;
 }
 
@@ -80,6 +91,10 @@ html, body {
 }
 */
 
+.description-text, .available-text {
+	padding-top: 0;
+}
+
 .description-text i {
 	font-size: 12px;
 }
@@ -87,4 +102,14 @@ html, body {
 .information {
 	background: #FFF;
 	margin-top: -1px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
 }
