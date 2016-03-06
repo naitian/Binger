@@ -1,9 +1,7 @@
 function init(){
-	if(document.referrer.indexOf('login') != -1){
-		getRandomMovie($('#card-1'));
-		getRandomMovie($('#card-2'));
-		getRandomMovie($('#card-3'));
-	}
+	getRandomMovie($('#card-1'));
+	getRandomMovie($('#card-2'));
+	getRandomMovie($('#card-3'));
 }
 
 function getRandomMovie(swipecard){
