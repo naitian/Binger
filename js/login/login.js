@@ -45,8 +45,8 @@ function login(auth) {
 		if(data === null){
 			console.log("------------==-=5=24-25-=24=-524=-=245=");
 			ref.child(auth.uid).set({
-				like: "hi"
-			}, function(){console.log("alskdghalksdfjlasdkghas;lfkjasdl;gkhasl;dfkjasdl;kfhasdkl;fjsdkl;j")});
+				taco: "hi"
+			});
 		}
 		console.log("---" + data + "---");
 	});
