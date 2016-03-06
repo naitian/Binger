@@ -36,9 +36,15 @@ function login(auth) {
 		uname = auth.facebook.displayName;
 
 	ref.child(auth.uid).set({
-		name: uname,
-		like: 0,
-		dislike: 0
+		name: uname
 	});
+	if(!ref.child(auth.uid + "/like"))
+		ref.child(auth.uid).set({
+			like: 0
+		});
+	if(!ref.child(auth.uid + "/dislike"))
+		ref.child(auth.uid).set({
+			dislike: 0
+		});
 	window.location.replace("swipe.html");
 }
