@@ -1,6 +1,9 @@
 var ref = new Firebase("https://binger.firebaseio.com");
 $(document).ready(function() {
 	console.log("ready");
+	if(ref.getAuth()){
+		window.location.replace("swipe.html");	
+	}
 	$(".mdl-button--googleplus").click(() => {
 		ref.authWithOAuthPopup("google", function(error, authData) {
 		  if (error) {
@@ -28,7 +31,9 @@ function login(auth) {
 	console.log(auth.uid);
 	var uname = auth.google.displayName || auth.facebook.displayName;
 	ref.child(auth.uid).set({
-		name: uname
+		name: uname,
+		like: 0,
+		dislike: 0
 	});
 	window.location.replace("swipe.html");
 }
