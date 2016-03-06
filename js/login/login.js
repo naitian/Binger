@@ -41,11 +41,11 @@ function login(auth) {
 
 	ref.child(auth.uid).once("value", function(snap){
 		var data = snap.val();
-		if(data.like === null)
+		if(typeof(data.like) == undefined)
 			ref.child(auth.uid).set({
 				like: 0
 			});
-		if(data.dislike === null)
+		if(typeof(data.dislike) == undefined)
 			ref.child(auth.uid).set({
 				dislike: 0
 			});
