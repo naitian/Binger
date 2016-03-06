@@ -91,7 +91,7 @@ function updateServiceAvailability(service, title, cardid){
 		if(!data['streamable']){
 			$("#" + cardid + " .icon-" + service).addClass("icon-disabled");
 		} else {			
-			$("#" + cardid + " .icon-" + service).removeClass("icon-disabled");
+			$("#" + cardid + " .icon-" + service).removeClass("icon-disabled").on("click", function(){window.location.href = `http://www.${service}.com/watch/${data.id}`});
 		}
 		$.data($(cardid), service, data);
 	});

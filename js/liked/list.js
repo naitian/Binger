@@ -17,6 +17,7 @@ function initListeners(){
 			$('.expanded .description-text p').css('display','initial');
 			$('.expanded .available-services').css('display','initial');
 			$('.expanded .swipe-actions').css('display','initial');
+
 		}
 	});
 }
@@ -40,10 +41,10 @@ function populateList(){
 				templateCopy.prop('id', key);
 				$('.mdl-list').append('<li class="mdl-list__item">' + templateCopy.prop('outerHTML') + '</div></li>');
 				displayInSwipeCard(templateCopy, val['data']['title'], val['data']['year'], val['data']['rating'], val['data']['runtime'], val['data']['genre'], val['data']['director'], val['data']['plot'], key, val['data']['poster'].substring(5,val['data']['poster'].length-2));
-				
 //				var tempcard = displayInSwipeCard($('.swipe-card').clone(), val['data']['title'], val['data']['year'], val['data']['rating'], val['data']['runtime'], val['data']['genre'], val['data']['director'], val['data']['plot'], key, 'http://www.google.com/');
 //				console.log(tempcard);
 //				$('.mdl-list').append('<li id="' + key + '" class="mdl-list__item">' + tempcard.html() + '</li>');
+				
 			});
 			initListeners();
 			$($('.mdl-list').children()[0]).css('display','none');

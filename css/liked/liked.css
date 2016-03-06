@@ -25,7 +25,8 @@ html, body {
 }
 
 .mdl-card {
-	width: 512px;
+	max-width: 512px;
+	width: 100%;
 	min-height: 40px;
 }
 .mdl-card__title {
@@ -36,7 +37,8 @@ html, body {
 }
 
 .mdl-list {
-	width: 512px;
+	max-width: 512px;
+	width: 100%;
 	margin: auto;
 	margin-top: 10%;
 }
