@@ -38,11 +38,11 @@ function login(auth) {
 	ref.child(auth.uid).set({
 		name: uname
 	});
-	if(ref.child(auth.uid + "/like") === null)
+	if(ref.child(auth.uid + "/like").val() === null)
 		ref.child(auth.uid).set({
 			like: 0
 		});
-	if(ref.child(auth.uid + "/dislike") === null)
+	if(ref.child(auth.uid + "/dislike").val() === null)
 		ref.child(auth.uid).set({
 			dislike: 0
 		});
