@@ -103,6 +103,7 @@
 	};
 
 	ElastiStack.prototype._moveAway = function( instance ) {
+		console.log("moveAway");
 		// disable drag
 		this._disableDragg();
 		

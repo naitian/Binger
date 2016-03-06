@@ -14,6 +14,7 @@ ul {
 
 li {
 	list-style: none;
+	border: none;
 }
 
 .dummy {
@@ -120,4 +121,10 @@ li {
   -ms-user-select: none;       /* IE/Edge */
   user-select: none;           /* non-prefixed version, currently
                                   not supported by any browser */
+}
+
+#toLikedMovies {
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
 }

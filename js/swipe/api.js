@@ -36,7 +36,7 @@ function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, direc
 }
 
 function updateServiceAvailability(service, title, cardid){
-	console.log("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title);
+//	console.log("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title);
 	$.getJSON("http://server.naitian.org:8080/streaming?service=" + service + "&title=" + title, function(data){
 		if(!data['streamable']){
 			$("#" + cardid + " .icon-" + service).addClass("icon-disabled");
@@ -61,6 +61,18 @@ function onThumbnailClick(obj){
 function removeiFrame(){
 	$('iframe').replaceWith('<div class="thumbnail"></div>');
 }
+
+$('.like-icon').on('click',function(event){
+	addPreference(true);
+});
+
+$('.dislike-icon').on('click',function(event){
+	addPreference(false);
+});
+
+$('#toLikedMovies').on('click', function(){
+	window.open('liked.html', '_self');
+});
 
 function addPreference(like){
 	
