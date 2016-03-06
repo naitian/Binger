@@ -47,6 +47,7 @@ function login(auth) {
 				like: 0
 			});
 		}
+		console.log("---" + data + "---");
 	});
 	ref.child(auth.uid).child('dislike').once("value", function(snap){
 		var data = snap.val();
