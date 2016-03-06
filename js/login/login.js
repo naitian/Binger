@@ -41,15 +41,19 @@ function login(auth) {
 
 	ref.child(auth.uid).child('like').once("value", function(snap){
 		var data = snap.val();
-		console.log(data);
-		// if(data.like == null)
-		// 	ref.child(auth.uid).set({
-		// 		like: 0
-		// 	});
-		// if(data.dislike == null)
-		// 	ref.child(auth.uid).set({
-		// 		dislike: 0
-		// 	});
+		if(data == null){
+			ref.child(auth.uid).set({
+				like: 0
+			});
+		}
+	});
+	ref.child(auth.uid).child('dislike').once("value", function(snap){
+		var data = snap.val();
+		if(data == null){
+			ref.child(auth.uid).set({
+				dislike: 0
+			});
+		}
 	});
 
 	window.location.replace("swipe.html");
