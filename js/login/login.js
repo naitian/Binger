@@ -29,7 +29,12 @@ $(document).ready(function() {
 
 function login(auth) {
 	console.log(auth.uid);
-	var uname = auth.google.displayName || auth.facebook.displayName;
+	var uname = "";
+	if(auth.google)
+		uname = auth.google.displayName;
+	else if(auth.facebook)
+		uname = auth.facebook.displayName;
+
 	ref.child(auth.uid).set({
 		name: uname
 	});
