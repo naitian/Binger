@@ -36,28 +36,9 @@ function login(auth) {
 		uname = auth.facebook.displayName;
 
 	ref.child(auth.uid).set({
-		name: uname
+		name: uname,
+		like: 0,
+		dislike: 0
 	});
-
-	ref.child(auth.uid).child('like').once("value", function(snap){
-		var data = snap.val();
-		console.log("===" + data + "===");
-		if(data === null){
-			console.log("------------==-=5=24-25-=24=-524=-=245=");
-			ref.child(auth.uid).set({
-				taco: "hi"
-			});
-		}
-		console.log("---" + data + "---");
-	});
-	ref.child(auth.uid).child('dislike').once("value", function(snap){
-		var data = snap.val();
-		if(data == null){
-			ref.child(auth.uid).set({
-				dislike: 0
-			});
-		}
-	});
-
 	window.location.replace("swipe.html");
 }
