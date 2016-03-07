@@ -18,7 +18,7 @@ function getRandomMovie(swipecard){
 				}
 			});
 		} else {
-			window.open('/login.html', '_self');	
+			window.open('login.html', '_self');	
 		}
 	});
 }
@@ -133,7 +133,7 @@ $('#toLikedMovies').on('click', function(){
 });
 $('#logout').on('click', function(){
 	ref.unauth();
-	window.open('/login.html', '_self');
+	window.open('login.html', '_self');
 });
 
 function addPreference(like){
