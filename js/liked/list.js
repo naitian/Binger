@@ -32,7 +32,7 @@ function initListeners(){
 }
 
 $('#toSwipe').on('click', function(event){
-	window.open('/swipe.html', '_self');
+	window.open('swipe.html', '_self');
 });
 
 /**
