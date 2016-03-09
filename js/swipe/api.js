@@ -9,7 +9,10 @@ function getRandomMovie(swipecard){
 		var auth = ref.getAuth();
 		if(auth){
 			ref.child(auth.uid).once("value", (d) => {
-				console.log(d.val());
+				if(d.val().dislike == null || d.val().like == null){
+					displayInSwipeCard(swipecard, data.Title, data.Year, data.Rated, data.Runtime, data.Genre, data.Director, data.Plot, data.imdbID, data.Poster);
+				}
+
 				if(!(d.val().dislike[data['imdbID']] !== undefined || d.val().like[data['imdbID']] !== undefined)){
 							displayInSwipeCard(swipecard, data['Title'], data['Year'], data['Rated'], data['Runtime'], data['Genre'], data['Director'], data['Plot'], data['imdbID'], data['Poster']);
 				}
