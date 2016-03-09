@@ -60,6 +60,7 @@ function pickRandomProperty(obj) {
 }
 
 function displayInSwipeCard(swipecard, title, year, rated, runtime, genre, director, plot, imdbID, poster){
+	poster = "http://server.naitian.org:8080/image?url=" + poster;
 	swipecard.css('display','inherit');
 	$("#" + swipecard.prop('id')).val(imdbID);
 	$("#" + swipecard.prop('id') + " .title").html(title);
