@@ -57,6 +57,6 @@ function populateList(){
 			$($('.mdl-list').children()[0]).css('display','none');
 		});
 	} else {
-		window.open('/login.html', '_self');
+		window.open('login.html', '_self');
 	}
 }
