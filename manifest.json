@@ -23,7 +23,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/login.html",
+  "start_url": "https://naitian.github.io/Binger/",
   "display": "standalone",
   "orientation": "portrait"
 }
